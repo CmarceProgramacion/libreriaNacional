@@ -26,7 +26,6 @@ public class BuyBooksDefinitions {
 
     @When("I register to create the account")
     public void IRegisterToCreateTheAccount(List<List<String>> logData) {
-
         UserModel user = new UserModel(logData.get(0));
         registerAccountStep.registerData(user);
     }

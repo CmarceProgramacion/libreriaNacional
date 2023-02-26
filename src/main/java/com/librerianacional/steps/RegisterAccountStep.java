@@ -4,13 +4,17 @@ import com.librerianacional.actions.Actions;
 import com.librerianacional.models.UserModel;
 import com.librerianacional.pageobjects.HomePage;
 import com.librerianacional.pageobjects.RegisterAccountPage;
+import net.serenitybdd.screenplay.waits.WaitUntil;
 import net.thucydides.core.annotations.Step;
 import org.hamcrest.MatcherAssert;
 
 import static com.librerianacional.pageobjects.HomePage.BUTTON_MY_ACCOUNT;
 import static com.librerianacional.pageobjects.HomePage.BUTTON_REGISTER;
+import static com.librerianacional.pageobjects.PurchaseInformationPage.LOADER;
 import static com.librerianacional.pageobjects.PurchaseInformationPage.LABEL_USER_NAME_ACCOUNT;
 import static com.librerianacional.pageobjects.RegisterAccountPage.*;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isClickable;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isNotVisible;
 import static org.hamcrest.Matchers.containsString;
 
 
@@ -44,6 +48,8 @@ public class RegisterAccountStep {
 
     @Step
     public void verifyElement(String name) {
+        WaitUntil.the(LOADER, isNotVisible());
+        WaitUntil.the(LABEL_USER_NAME_ACCOUNT, isClickable());
         MatcherAssert.assertThat(actions.getTextElement(LABEL_USER_NAME_ACCOUNT), containsString(name));
     }
 }

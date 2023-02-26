@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 
 public class PurchaseInformationPage extends PageObject {
 
+    public static final By LOADER = By.xpath("//div[contains(@class, 'sk-spinner')]");
     public static final By LABEL_USER_NAME_ACCOUNT = By.xpath("//div[@class='col-12 px-0 text--extrabold text--lgx text--lh-1 text--blue']");
     public static final By BUTTON_LOGIN_WITH_AND_PASSWORD = By.xpath("(//div[text()=' Ingresar con Mail y contraseña '])[1]");
     public static final By INPUT_EMAIL_ACCOUNT = By.name("usuario");
