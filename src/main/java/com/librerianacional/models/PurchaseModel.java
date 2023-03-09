@@ -1,10 +1,13 @@
 package com.librerianacional.models;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class PurchaseModel {
-
     private String nameArticle;
+    private String  quantity;
+    private String total;
     private String addressName;
     private String typeOfHousing;
     private String names;
@@ -18,8 +21,11 @@ public class PurchaseModel {
     private String department;
     private String city;
 
+
     public PurchaseModel(List<String> shoppingList) {
-        this.nameArticle = shoppingList.get(2);
+        this.nameArticle = shoppingList.get(0);
+        this.quantity=shoppingList.get(1);
+        this.total=shoppingList.get(2);
         this.addressName = shoppingList.get(3);
         this.typeOfHousing = shoppingList.get(4);
         this.names = shoppingList.get(5);
@@ -32,10 +38,32 @@ public class PurchaseModel {
         this.country = shoppingList.get(12);
         this.department = shoppingList.get(13);
         this.city = shoppingList.get(14);
+
+    }
+    public PurchaseModel(ArrayList<Map<String, String>> shoppingList) {
+        this.nameArticle = shoppingList.get(0).get("nameArticle");
+        this.quantity = shoppingList.get(0).get("quantity");
+        this.total =shoppingList.get(0).get("total");
+        this.addressName = shoppingList.get(0).get("addressName");
+        this.typeOfHousing = shoppingList.get(0).get("typeOfHousing");
+        this.names = shoppingList.get(0).get("names");
+        this.lastNames = shoppingList.get(0).get("lastNames");
+        this.phone = shoppingList.get(0).get("phone");
+        this.cellPhone = shoppingList.get(0).get("cellPhone");
+        this.address = shoppingList.get(0).get("address");
+        this.addressDescription = shoppingList.get(0).get("addressDescription");
+        this.postalCode = shoppingList.get(0).get("postalCode");
+        this.country = shoppingList.get(0).get("country");
+        this.department = shoppingList.get(0).get("department");
+        this.city = shoppingList.get(0).get("city");
+
     }
 
     public void setNameArticle(String nameArticle) {
         this.nameArticle = nameArticle;
+    }
+    public void setQuantity(String quantity) {
+        this.quantity = quantity;
     }
 
     public void setAddressName(String addressName) {
@@ -90,7 +118,15 @@ public class PurchaseModel {
         return nameArticle;
     }
 
+    public String getQuantity(){return quantity;}
+
+    public String getTotal(){ return total;}
+
     public String getAddressName() {
+        return addressName;
+    }
+
+    public String getAqua() {
         return addressName;
     }
 

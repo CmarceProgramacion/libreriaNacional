@@ -11,3 +11,6 @@ public class HomePage extends PageObject {
     public static final By BUTTON_LOG_IN = By.xpath("(//a[@href='/usuario/ingresar'])[2]");
 
 }
+
+
+

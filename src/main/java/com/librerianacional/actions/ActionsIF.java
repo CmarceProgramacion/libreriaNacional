@@ -13,4 +13,6 @@ public interface ActionsIF {
 
     void setTextAndEnter(By by, String text);
 
+    void closeDriver();
+
 }

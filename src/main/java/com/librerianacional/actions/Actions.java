@@ -1,5 +1,6 @@
 package com.librerianacional.actions;
 
+import net.serenitybdd.core.Serenity;
 import net.serenitybdd.core.pages.PageObject;
 import org.openqa.selenium.By;
 
@@ -28,6 +29,11 @@ public class Actions extends PageObject implements ActionsIF {
     @Override
     public void setTextAndEnter(By by, String text) {
         find(by).typeAndEnter(text);
+    }
+
+    @Override
+    public void closeDriver() {
+        Serenity.getWebdriverManager().closeDriver();
     }
 
 }

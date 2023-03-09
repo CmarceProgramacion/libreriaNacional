@@ -2,24 +2,15 @@
 
 #### Descripción
 
-Proyecto de Automatización de alertas JavaScript, Iframes y múltiples ventanas usando JAVA y Serenity BDD
+Proyecto de Automatización de la plataforma Libreria Nacional JAVA y Serenity BDD
 
-#### Feature: validate that the alerts
+#### Feature: Validate that through a created account the purchase of books is made on the National Library platform
 
-> **As** an automator
+> **As** a user of the platform
 
-> **I** want to use javaScript alerts
+> **I** want to register on the platform of the national bookstore
 
-> **To** validate its functionality
-
-#
-#### Feature: Validate changes to a text in the editor
-
-> **As** an automator
-
-> **I** want to access the editor to write a text and change its formatting
-
-> **To** verify the changes written in the editor
+> **To** be able to shop online
 
 #
 #### Feature: Validate the content of multiple windows
@@ -36,7 +27,7 @@ En la construcción del proyecto de automatizacion web en la plataforma Herokuap
 - Patrón de diseño de Screemplay.
 - Framework SerenityBDD.
 - Gestor de paquetes Gradle.
-- Desarrollado en java en su versión 8
+- Desarrollado en java en su versión 11
 
 #### Versionado
 
@@ -50,19 +41,27 @@ En la construcción del proyecto de automatizacion web en la plataforma Herokuap
 
 #### Precondiciones
 
-- [x] 1: Instar Java en su versión 8.
+- [x] 1: Instar Java en su versión 11.
 - [x] 1.1: Configurar variable de entorno JAVA_HOME
 - [x] 2: Instar Gradle en su versión 7.2
 - [x] 2.1: Configurar variable de entorno GRADLE_HOME
-- [x] 3: Para ejecutar Edge se debe usar el parametro comentado en serenity.properties:
-  - webdriver.driver=edge
+- [x] 3: Se debe cambiar la data en especialmente el campo del correo electronico
+         ya que este campo no se puede repetir en cada flujo
 
 
 #### Ejecución del proyecto
 
 Para la ejecución del proyecto se debe implementar el siguiente comando en el terminal en el directorio raíz del proyecto:
-
+- si tienes gradle instalado y configurado puedes ejecutar el siguiente comando:
 ```sh
-gradle clean test -Denvironment=stg
+gradle clean test '-Dwebdriver.driver=chrome'
+```
+- si no tienes gradle o la version correspondiente ejecuta el siguiente comando:
+```sh
+./gradlew clean test '-Dwebdriver.driver=chrome'
+```
+- Si deseas usar edge cambie el valor del siguiente parametro:
+```sh
+'-Dwebdriver.driver=edge'
 ```
 

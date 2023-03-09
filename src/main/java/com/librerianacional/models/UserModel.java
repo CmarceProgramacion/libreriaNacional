@@ -1,6 +1,8 @@
 package com.librerianacional.models;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class UserModel {
     private String email;
@@ -21,6 +23,17 @@ public class UserModel {
         this.cellPhone = logData.get(5);
         this.phoneNumber = logData.get(6);
         this.password = logData.get(7);
+    }
+
+    public UserModel(ArrayList<Map<String, String>> logData) {
+        this.email = logData.get(0).get("email ");
+        this.name = logData.get(0).get("name");
+        this.lastName = logData.get(0).get("lastName");
+        this.documentType = logData.get(0).get("documentType");
+        this.documentNumber = logData.get(0).get("documentNumber");
+        this.cellPhone = logData.get(0).get("cellPhone");
+        this.phoneNumber = logData.get(0).get("phoneNumber");
+        this.password = logData.get(0).get("password");
     }
 
     public UserModel(String email, String password) {

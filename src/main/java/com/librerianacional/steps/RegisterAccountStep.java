@@ -4,14 +4,19 @@ import com.librerianacional.actions.Actions;
 import com.librerianacional.models.UserModel;
 import com.librerianacional.pageobjects.HomePage;
 import com.librerianacional.pageobjects.RegisterAccountPage;
+import com.librerianacional.utils.DataListExcel;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 import net.thucydides.core.annotations.Step;
 import org.hamcrest.MatcherAssert;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Map;
+
 import static com.librerianacional.pageobjects.HomePage.BUTTON_MY_ACCOUNT;
 import static com.librerianacional.pageobjects.HomePage.BUTTON_REGISTER;
-import static com.librerianacional.pageobjects.PurchaseInformationPage.LOADER;
 import static com.librerianacional.pageobjects.PurchaseInformationPage.LABEL_USER_NAME_ACCOUNT;
+import static com.librerianacional.pageobjects.PurchaseInformationPage.LOADER;
 import static com.librerianacional.pageobjects.RegisterAccountPage.*;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isClickable;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isNotVisible;
@@ -23,6 +28,12 @@ public class RegisterAccountStep {
     private RegisterAccountPage registerAccountPage;
     private HomePage homePage;
     private Actions actions;
+    public static ArrayList<Map<String, String>> leerExcel = new ArrayList<>();
+
+    @Step
+    public void readExcel()throws IOException {
+        leerExcel = DataListExcel.readExcel("DataList.xlsx", "InfoBasica");
+    }
 
     @Step
     public void openBrowser() {
@@ -51,5 +62,9 @@ public class RegisterAccountStep {
         WaitUntil.the(LOADER, isNotVisible());
         WaitUntil.the(LABEL_USER_NAME_ACCOUNT, isClickable());
         MatcherAssert.assertThat(actions.getTextElement(LABEL_USER_NAME_ACCOUNT), containsString(name));
+    }
+    @Step
+    public void closeDriver(){
+        homePage.getDriver().close();
     }
 }
